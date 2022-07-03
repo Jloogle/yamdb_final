@@ -1,7 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-from api.validators import validate_score, title_year_validator
+import api.validators
 
 
 class User(AbstractUser):
@@ -97,7 +97,7 @@ class Title(models.Model):
         verbose_name='Описание'
     )
     year = models.IntegerField(
-        validators=[title_year_validator],
+        validators=[api.validators.title_year_validator],
         verbose_name='Дата выпуска'
     )
 
@@ -130,7 +130,7 @@ class Review(models.Model):
     )
     score = models.IntegerField(
         verbose_name='Оценка',
-        validators=[validate_score]
+        validators=[api.validators.validate_score]
     )
     pub_date = models.DateTimeField(
         auto_now_add=True,
