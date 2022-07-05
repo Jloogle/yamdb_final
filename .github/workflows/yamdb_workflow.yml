@@ -12,7 +12,6 @@ jobs:
 
         uses: actions/setup-python@v2
         with:
-          context: ./api_yamdb
           python-version: 3.7
 
       - name: Install dependencies
@@ -59,7 +58,6 @@ jobs:
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
         with:
-          context: ./api_yamdb
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
@@ -67,7 +65,7 @@ jobs:
           script: |
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/yamdb_final:latest
             sudo docker-compose stop
-            sudo docker-compose rm web
+            sudo docker-compose rm -f web
             touch .env
             echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
             echo DB_NAME=${{ secrets.DB_NAME }} >> .env
@@ -75,7 +73,7 @@ jobs:
             echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
             echo DB_HOST=${{ secrets.DB_HOST }} >> .env
             echo DB_PORT=${{ secrets.DB_PORT }} >> .env
-            sudo docker-compose up -d
+            sudo docker-compose up --force-recreate -d
 
   send_message:
     runs-on: ubuntu-latest
