@@ -11,7 +11,7 @@ services:
       - ./.env
 
   web:
-    image: yamdb_final:latest
+    image: jloogle/yamdb_final:latest
 
     restart: always
 
