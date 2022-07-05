@@ -1,3 +1,5 @@
+![Workflow status](https://github.com/Jloogle/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg) 
+
 # Описание
 Api v1 для проекта api_YaMDb<br>
 Позволяет обращаться к базе и получать ответ в формате JSON

@@ -1,7 +1,6 @@
+import api.validators
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-
-import api.validators
 
 
 class User(AbstractUser):
