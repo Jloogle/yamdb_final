@@ -12,6 +12,7 @@ jobs:
 
         uses: actions/setup-python@v2
         with:
+          context: ./api_yamdb
           python-version: 3.7
 
       - name: Install dependencies
