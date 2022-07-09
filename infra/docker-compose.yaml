@@ -11,29 +11,12 @@ services:
   web:
     image: jloogle/yamdb_final:latest
     restart: always
-    depends_on:
-      - db
-    env_file:
-      - ./.env
-
-  web-prepare:
-    image: jloogle/yamdb_final:latest
     volumes:
-      - static_value:/app/static/:rw
-    env_file:
-      - ./.env
-    command:
-      - pre-run
-
-  web-migrate:
-    image: jloogle/yamdb_final:latest
-    #    restart: on-failure
+      - static_value:/app/static/
     depends_on:
       - db
     env_file:
       - ./.env
-    command:
-      - migrate
 
   nginx:
     image: nginx:1.21.3-alpine

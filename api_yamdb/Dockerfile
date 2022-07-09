@@ -1,7 +1,9 @@
 FROM python:3.7-slim
+
 WORKDIR /app
-COPY . .
+
+COPY ./ /app
+
 RUN pip install --upgrade pip && pip3 install -r requirements.txt --no-cache-dir
-ENV DJANGO_SECRET_KEY 123
-ENTRYPOINT ["./entrypoint.sh"]
-CMD ["run"]
+
+CMD ["gunicorn", "api_yamdb.wsgi:application", "--bind", "0:8000"]
