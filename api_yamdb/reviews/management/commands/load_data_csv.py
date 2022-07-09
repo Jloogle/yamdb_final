@@ -10,6 +10,8 @@ class Command(BaseCommand):
     help = "Loads data from csv"
 
     def handle(self, *args, **options):
+        if Review.objects.count() > 0:
+            return print('Данные уже загружены')
 
         with open('static/data/users.csv', 'r', encoding='utf-8') as csvfile:
             dict_reader = csv.DictReader(csvfile)
