@@ -75,3 +75,4 @@ class Command(BaseCommand):
                     pub_date=row['pub_date'])
 
         self.stdout.write(self.style.SUCCESS('База данных успешно заполнена'))
+        return 'OK'
