@@ -12,7 +12,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         if Title.objects.count() > 1:
             print('Данные уже загружены')
-            return
+            return 'exit'
 
         with open('static/data/users.csv', 'r', encoding='utf-8') as csvfile:
             dict_reader = csv.DictReader(csvfile)
