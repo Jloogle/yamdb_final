@@ -79,5 +79,10 @@ sudo docker-compose exec web python createsuperuser
 ip-адрес_вашего_сервера/redoc/
 ```
 
-Автор:<br>
+Проект доступен по ссылкам:
+```
+http://84.201.137.175/api/v1/titles/
+http://84.201.137.175/redock/  
+```
+Автор:  
 Живов Игорь - https://github.com/Jloogle
