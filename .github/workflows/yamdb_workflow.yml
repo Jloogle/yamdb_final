@@ -46,6 +46,15 @@ jobs:
           context: ./api_yamdb
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/yamdb_final:latest
+      - name: Send message if build_and_push_to_docker_hub failed
+        if: ${{ failure() }}
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            Ошибка при сборке/отправке образа на DockerHub  - ${{ github.repository }}
+            https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
   deploy:
     runs-on: ubuntu-latest
@@ -62,7 +71,7 @@ jobs:
           script: |
             sudo docker-compose stop
             sudo docker-compose rm -f web
-            sduo docker pull ${{ secrets.USER }}/yamdb_final:latest
+            sduo docker pull ${{ secrets.DOCKER_USERNAME }}/yamdb_final:latest
             touch .env
             echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
             echo DB_NAME=${{ secrets.DB_NAME }} >> .env
