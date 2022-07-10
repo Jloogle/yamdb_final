@@ -54,7 +54,7 @@ REST API YaMDb - база отзывов пользователей о филь�
 ``` sudo chmod +x /usr/local/bin/docker-compose	```;  
 Проверьте установку (должна вернуться версия docker-compose):  
 ``` docker-compose --version ```;  
-- Создайте на сервере два файла и скопируйте в них код из проекта на GitHub:  
+- Создайте на сервере два файла и скопируйте в них код из файла defaul.conf на GitHub и ранее измененного вами файла docker-compose.yaml:  
 > docker-compose.yaml в home/<username>/docker-compose.yaml  
 ``` sudo nano docker-compose.yaml ```  
 > nginx/default.conf в home/<username>/nginx/default.conf  
