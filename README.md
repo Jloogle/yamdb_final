@@ -1,3 +1,7 @@
+## Описание
+REST API YaMDb - база отзывов пользователей о фильмах, книгах и музыке. Здесь можно оставить отзыв о произведении и подискутировать о нем в комментариях.
+
+
 # REST API YamDB
 ![Workflow status](https://github.com/Jloogle/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg) 
 
@@ -14,10 +18,7 @@
 * nginx
 * Yandex.Cloud
 
-## Описание
-REST API YaMDb - база отзывов пользователей о фильмах, книгах и музыке. Здесь можно оставить отзыв о произведении и подискутировать о нем в комментариях.
 ### Подготовка репозитория
-
 1. Клонируйте репозиторий на локальную машину командой:
  ```
  git clone git@github.com:Jloogle/yamdb_final.git
